@@ -11,6 +11,20 @@ The first of four React labs. Together they build a to-do app:
 
 This week you turn a static list into a live to-do app: add items, check them off, delete them, and show a count that updates itself. The starter is a working React project that already renders the todos - your job is to make it interactive.
 
+## Getting your copy of the starter repo
+
+The starter for this lab is a **template repository** on GitHub (the link is on Canvas). Make your own copy of it - work in *your* copy, never in the template:
+
+1. Open the template repo and click **Use this template → Create a new repository**.
+2. Name it `csci3230u-lab-07-<your-github-username>`, set the visibility to **Private**, and create it.
+3. Add your **lab instructor (TA)** and the **course instructor** as collaborators (**Settings → Collaborators and teams → Add people**) - your work cannot be marked if they cannot see it.
+4. Clone your new copy and work there:
+
+   ```bash
+   git clone <your-repo-url>
+   cd <your-repo-dir>
+   ```
+
 ## The starter
 
 A ready-to-run Vite + React project. The list renders from a hard-coded array; no dynamic behaviour yet.
@@ -87,8 +101,10 @@ The data is an array of `{ id, text, done }`. Work through the steps marked in `
 
 In the Sudoku Lab 05 you cleared and rebuilt the board's DOM by hand on every move. Here you just changed an array and React did the rest. **Write a sentence or two on that difference** - it's the whole point of a component framework.
 
-## How to submit (GitHub Classroom)
+## How to submit
 
 Commit and **push to `origin`** (don't commit `node_modules/` - the `.gitignore` handles it). The graded state is whatever is on `main`.
+
+However, since lab marks do sometimes go missing, I would encourage everyone to submit the URL of their repository to Canvas as the submission for this lab assignment (and for all other labs).  If there are any lab mark discrepancies, at least we have your submission to re-mark it.
 
 > **AI policy:** this lab is hand-coded. You may ask an AI assistant to explain a React concept or interpret a failing test, but write the components yourself. In the next lab you will be permitted to use an AI *agent* to generate code. See `project/ai-policy.md`.
