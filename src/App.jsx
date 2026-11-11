@@ -1,7 +1,8 @@
+import { useState } from "react";
 import TodoList from "./TodoList.jsx";
-// Step 3: create AddTodoForm.jsx, then import and use it below.
-// import AddTodoForm from "./AddTodoForm.jsx";
+import AddTodoForm from "./AddTodoForm.jsx";
 
+//starts list of tasks
 const INITIAL_TODOS = [
   { id: 1, text: "Read the lab README", done: true },
   { id: 2, text: "Build the to-do list", done: false },
@@ -9,25 +10,40 @@ const INITIAL_TODOS = [
 ];
 
 export default function App() {
-  // Right now the list is STATIC. Your job is to make it live.
-  //
-  // Step 1: hold the todos in state instead of a constant:
-  //   const [todos, setTodos] = useState(INITIAL_TODOS)
-  const todos = INITIAL_TODOS;
 
-  // Step 2: write these handlers. They must NOT mutate state - build a NEW
-  // array each time (spread / map / filter) and pass it to setTodos:
-  //   addTodo(text)   → append { id, text, done: false }  (give it a fresh id)
-  //   toggleTodo(id)  → flip `done` on the matching todo
-  //   deleteTodo(id)  → drop the matching todo
-  // Then pass them as props to the components below.
+//stores the current to do list
+  const [todos, setTodos] = useState(INITIAL_TODOS);
+
+//adds new tasks to list
+  function addTodo(text) {
+    const id = Math.max(0, ...todos.map(t => t.id)) + 1;
+    setTodos([...todos, { id, text, done: false }]);
+  }
+
+//Switch a task between completed and not completed
+  function toggleTodo(id) {
+    setTodos(todos.map(t => t.id === id ? { ...t, done: !t.done } : t));
+  }
+
+//Removes tasks
+  function deleteTodo(id) {
+    setTodos(todos.filter(t => t.id !== id));
+  }
+
+//counts how many are done and many there is in total
+  const done = todos.filter(t => t.done).length;
+  const total = todos.length;
 
   return (
     <main className="app">
       <h1>My To-Dos</h1>
-      {/* Step 3: <AddTodoForm onAdd={addTodo} /> */}
-      <TodoList todos={todos} />
-      {/* Step 4: a derived count - "{done} of {total} done" computed from todos */}
+      <AddTodoForm onAdd={addTodo} />
+      <TodoList
+        todos={todos}
+        onToggle={toggleTodo}
+        onDelete={deleteTodo}
+      />
+      <p className="count">{done} of {total} done</p>
     </main>
   );
 }

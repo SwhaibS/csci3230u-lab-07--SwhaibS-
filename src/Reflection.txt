@@ -1,0 +1,2 @@
+I had to manually update things every time a move was made in lab 5
+In Lab 7 I only had to update the state of the array, and React automatically updated the page
