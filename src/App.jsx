@@ -34,6 +34,7 @@ export default function App() {
   const done = todos.filter(t => t.done).length;
   const total = todos.length;
 
+
   return (
     <main className="app">
       <h1>My To-Dos</h1>
@@ -44,6 +45,7 @@ export default function App() {
         onDelete={deleteTodo}
       />
       <p className="count">{done} of {total} done</p>
+ 344ec3b04f8904176f0a6f62952f1cd7410324dd
     </main>
   );
 }
